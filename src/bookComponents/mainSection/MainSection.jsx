@@ -2,6 +2,7 @@ import { useState } from "react";
 import { book_data } from "../../assets/data";
 import { MdStar, MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import BookModal from "../bookModal/BookModal";
+import BookFooter from "../bookFooter/BookFooter";
 
 function MainSection({
   cartData,
@@ -114,6 +115,10 @@ function MainSection({
           </div>
         </div>
       ))}
+      <div className="col-span-3">
+
+      <BookFooter/>
+      </div>
       <BookModal
         cartItemId={cartItemId}
         cartData={cartData}

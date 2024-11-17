@@ -6,12 +6,12 @@ import MainSection from "./mainSection/MainSection";
 import RightSidebar from "./rightSidebar/RightSidebar";
 
 function BookComponents() {
-  const [cartData, setCartData] = useState('');
-  const [cartItemId, setCartItemId] = useState('');
-  const [sortBy, setSortBy] = useState('');
-  const [filterCategory, setFilterCategory] = useState('');
-  const [favorites, setFavorites] = useState([]); 
-  const [searchItems,setSearchItems] = useState('');
+  const [cartData, setCartData] = useState("");
+  const [cartItemId, setCartItemId] = useState("");
+  const [sortBy, setSortBy] = useState("");
+  const [filterCategory, setFilterCategory] = useState("");
+  const [favorites, setFavorites] = useState([]);
+  const [searchItems, setSearchItems] = useState("");
 
   const handleCartData = (e) => {
     setCartData(e);
@@ -30,18 +30,23 @@ function BookComponents() {
   };
 
   const addFavorite = (bookId) => {
-    setFavorites((prevFavorites) => 
-      prevFavorites.includes(bookId) ? prevFavorites : [...prevFavorites, bookId]
+    setFavorites((prevFavorites) =>
+      prevFavorites.includes(bookId)
+        ? prevFavorites
+        : [...prevFavorites, bookId]
     );
   };
 
   return (
-    <div className="xl:max-w-[1265px] lg:max-w-[965px] md:max-w-[667px] mx-auto px-7 py-5 dark:bg-gray-900 dark:text-white">
-      <div>
+    <div className="xl:max-w-[1265px] lg:max-w-[965px] md:max-w-[667px] mx-auto px-7 pt-4 pb-1 dark:bg-gray-900 dark:text-white h-screen overflow-hidden">
+      <div className="h-full flex flex-col">
+        {/* Book Header */}
         <BookHeader bookCartItemId={bookCartItemId} cartData={cartData} />
-        <div className="md:flex gap-5 py-5 ">
+
+        {/* Main Content Section */}
+        <div className="md:flex gap-5 pt-1 flex-1 overflow-y-auto">
           <div className="flex justify-around">
-            <LeftSidebar 
+            <LeftSidebar
               onFilterChange={handleFilterCategory}
               favorites={favorites}
               setSearchItems={setSearchItems}
@@ -50,25 +55,26 @@ function BookComponents() {
               <RightSidebar onSortChange={handleSortChange} />
             </div>
           </div>
-          <MainSection 
-            cartItemId={cartItemId} 
-            cartData={handleCartData} 
-            sortBy={sortBy} 
-            filterCategory={filterCategory} 
-            onAddFavorite={addFavorite} 
-            favorites={favorites} 
-            searchItems={searchItems}
-          />
+
+          <div>
+            <MainSection
+              cartItemId={cartItemId}
+              cartData={handleCartData}
+              sortBy={sortBy}
+              filterCategory={filterCategory}
+              onAddFavorite={addFavorite}
+              favorites={favorites}
+              searchItems={searchItems}
+            />
+          </div>
+
           <div className="max-[448px]:hidden">
             <RightSidebar onSortChange={handleSortChange} />
           </div>
         </div>
-        <BookFooter />
       </div>
     </div>
   );
 }
-
-
 
 export default BookComponents;
