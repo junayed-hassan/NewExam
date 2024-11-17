@@ -2,7 +2,6 @@ import { useState } from "react";
 import { book_data } from "../../assets/data";
 import { MdStar, MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import BookModal from "../bookModal/BookModal";
-import './mainSection.css';
 
 function MainSection({
   cartData,
