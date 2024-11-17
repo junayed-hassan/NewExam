@@ -38,7 +38,7 @@ function BookComponents() {
   };
 
   return (
-    <div className="xl:max-w-[1265px] lg:max-w-[965px] md:max-w-[667px] mx-auto px-7 pt-4 pb-1 dark:bg-gray-900 dark:text-white h-screen overflow-hidden">
+    <div className="xl:max-w-[1240px] lg:max-w-[965px] md:max-w-[667px] mx-auto px-7 pt-4 pb-1 dark:bg-gray-900 dark:text-white h-screen overflow-hidden">
       <div className="h-full flex flex-col">
         {/* Book Header */}
         <BookHeader bookCartItemId={bookCartItemId} cartData={cartData} />

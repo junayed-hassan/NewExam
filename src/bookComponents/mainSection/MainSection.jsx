@@ -62,6 +62,7 @@ function MainSection({
   
 
   return (
+    <>
     <div className="grid justify-around xl:grid-cols-3 md:grid-cols-2 gap-3.5 font-Inter h-[525px] overflow-auto scrollbar-hidden">
       {renderEmptyStateMessage() && (
         <p className="col-span-3 text-center pt-40 font-bold xl:w-[800px] lg:w-[510px] md:w-[370px] text-gray-500 lg:me-36 md-0">
@@ -113,12 +114,10 @@ function MainSection({
               )}
             </button>
           </div>
+
         </div>
       ))}
-      <div className="col-span-3">
-
-      <BookFooter/>
-      </div>
+        <span className="xl:col-span-3 md:col-span-2"><BookFooter/></span>  
       <BookModal
         cartItemId={cartItemId}
         cartData={cartData}
@@ -129,6 +128,7 @@ function MainSection({
         favorites={favorites}
       />
     </div>
+    </>
   );
 }
 

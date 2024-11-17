@@ -112,7 +112,7 @@ function LeftSidebar({ onFilterChange, favorites, setSearchItems }) {
       {/* Sidebar for Mobile */}
       <div
         ref={menuRef}
-        className="fixed top-14 left-[-300px] h-full w-44 dark:bg-gray-900 bg-white  transition-all duration-300 z-20 lg:hidden"
+        className="fixed top-14 left-[-300px] h-full w-64 dark:bg-gray-900 bg-white  transition-all duration-300 z-20 lg:hidden"
       >
         <IoMdClose
           onClick={closeMenu}
