@@ -40,15 +40,15 @@ function MainSection({
     return 0;
   });
 
-  const filteredBooks = sortedBooks
-  .filter((book) => {
-    if (searchItems) {return book.id === searchItems;}
+  const filteredBooks = sortedBooks.filter((book) => {
+    if (searchItems) return book.id === searchItems;
     if (filterCategory === "Favorites") return favorites.includes(book.id);
-    if (filterCategory === "Trending") return true; 
+    if (filterCategory === "Trending") return book.rating === 5; 
     if (filterCategory === "coming_soon") return book.status === "coming_soon";
     if (filterCategory === "new_releases") return book.status === "new_releases";
     return book.category === filterCategory || filterCategory === "";
   });
+  
 
   const renderEmptyStateMessage = () => {
     if (filterCategory === "Favorites" && filteredBooks.length === 0) {
